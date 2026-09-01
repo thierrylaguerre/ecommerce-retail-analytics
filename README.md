@@ -90,24 +90,22 @@ Dans le secteur du retail e-commerce, comprendre le comportement des visiteurs e
 
 **Source :** [Kaggle — ECommerce Retail Analytics Dataset (ElecMart)](https://www.kaggle.com/datasets/ajibsss/elecmart-retail-analytics-dataset)
 
-**Architecture en étoile — 14 tables :**
+**Architecture en étoile — 14 tables · 1.8M+ lignes**
 
-| Fichier | Type | Description | Volume |
-|---------|------|-------------|--------|
-| `fact_clickstream` | Fait | Sessions web et comportement visiteurs | 1.7M lignes |
-| `fact_sale` | Fait | Transactions de vente ligne par ligne | 1.8M lignes |
-| `fact_transaction` | Fait | Transactions agrégées | — |
-| `dim_customer` | Dimension | Profil et segmentation clients | 150K lignes |
-| `dim_product` | Dimension | Catalogue produits et prix | 470 lignes |
-| `dim_store` | Dimension | Magasins et points de vente | — |
-| `dim_location` | Dimension | Géographie | — |
-| `dim_campaign` | Dimension | Campagnes marketing | — |
-| `dim_promotion` | Dimension | Promotions actives | — |
-| `dim_brand` | Dimension | Marques produits | — |
-| `dim_category` | Dimension | Catégories produits | — |
-| `dim_subcategory` | Dimension | Sous-catégories | — |
-| `dim_date` | Dimension | Calendrier | — |
-| `inventory` | Fait | Niveaux de stock | — |
+| Fichier | Disponible | Description | Volume |
+|---------|-----------|-------------|--------|
+| `fact_clickstream.csv` | ⬇️ Kaggle | Sessions web et comportement visiteurs | 1.7M lignes |
+| `fact_sale.csv` | ⬇️ Kaggle | Transactions de vente ligne par ligne | 1.8M lignes |
+| `fact_transaction.csv` | ⬇️ Kaggle | Transactions agrégées | — |
+| `dim_customer.csv` | ✅ repo | Profil et segmentation clients | 150K lignes |
+| `dim_product.csv` | ✅ repo | Catalogue produits et prix | 470 lignes |
+| `dim_store.csv` | ⬇️ Kaggle | Magasins et points de vente | — |
+| `dim_location.csv` | ⬇️ Kaggle | Géographie | — |
+| `dim_campaign.csv` | ⬇️ Kaggle | Campagnes marketing | — |
+| `dim_date.csv` | ⬇️ Kaggle | Calendrier | — |
+| `inventory.csv` | ⬇️ Kaggle | Niveaux de stock | — |
+
+> ⚠️ Les fichiers `fact_` dépassent 100MB — à télécharger directement sur [Kaggle](https://www.kaggle.com/datasets/ajibsss/elecmart-retail-analytics-dataset) et à placer dans le même dossier que le notebook.
 
 ---
 
@@ -128,13 +126,11 @@ Dans le secteur du retail e-commerce, comprendre le comportement des visiteurs e
 ```
 ecommerce-retail-analytics/
 ├── README.md
+├── requirements.txt
 ├── analyse_ecommerce_elecmart.ipynb   ← Notebook Jupyter complet
 ├── analyse_ecommerce.py               ← Script Python standalone
-└── data/
-    ├── fact_clickstream_sample.csv    ← Échantillon 500K sessions
-    ├── fact_sale.csv                  ← 1.8M transactions
-    ├── dim_customer.csv               ← 150K clients
-    └── dim_product.csv                ← 470 produits
+├── dim_customer.csv                   ← 150K clients
+└── dim_product.csv                    ← 470 produits
 ```
 
 ---
@@ -142,13 +138,20 @@ ecommerce-retail-analytics/
 ## 🚀 Lancer le projet
 
 ```bash
+# 1. Cloner le repo
 git clone https://github.com/TON_USERNAME/ecommerce-retail-analytics
 cd ecommerce-retail-analytics
-pip install pandas matplotlib seaborn jupyter
+
+# 2. Installer les dépendances
+pip install -r requirements.txt
+
+# 3. Télécharger les fichiers fact_ sur Kaggle
+# https://www.kaggle.com/datasets/ajibsss/elecmart-retail-analytics-dataset
+# Placer fact_clickstream.csv, fact_sale.csv dans le dossier
+
+# 4. Lancer le notebook
 jupyter notebook analyse_ecommerce_elecmart.ipynb
 ```
-
-> Les fichiers CSV doivent être dans le même dossier que le notebook.
 
 ---
 
