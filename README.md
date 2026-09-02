@@ -2,28 +2,20 @@
 
 > Projet portfolio Data Analyst · Secteur Retail & E-commerce · 2024
 
----
-
-## 🎯 Contexte & Problématique
-
-### Contexte métier
-
-Dans le secteur du retail e-commerce, comprendre le comportement des visiteurs est essentiel pour optimiser le tunnel de conversion et maximiser la rentabilité. Les données clickstream, combinées aux données de ventes et de profils clients, permettent d'identifier les points de friction et les leviers de croissance.
-
-### Problématique
-
-**"Comment optimiser les performances d'un e-commerce retail en analysant le comportement des visiteurs, les sources de trafic et la rentabilité produit ?"**
-
-### Objectifs
-
-- Analyser l'entonnoir de conversion de bout en bout (sessions → achat)
-- Identifier les devices et sources de trafic les plus performants
-- Segmenter les clients par statut de fidélité et mesurer leur rentabilité
-- Identifier les produits les plus rentables et les leviers d'optimisation
+![Entonnoir de conversion](screenshots/entonnoir.png)
+![Performance par device](screenshots/device.png)
+![Segmentation clients fidélité](screenshots/fidelite.png)
+![Top 10 produits par marge](screenshots/top_produits.png)
 
 ---
 
-## 📊 Résultats & KPIs Clés
+## 🎯 Problématique
+
+**Comment optimiser les performances d'un e-commerce retail en analysant le comportement des visiteurs, les sources de trafic et la rentabilité produit ?**
+
+---
+
+## 📊 KPIs Clés
 
 | KPI | Valeur |
 |-----|--------|
@@ -37,40 +29,28 @@ Dans le secteur du retail e-commerce, comprendre le comportement des visiteurs e
 
 ---
 
-## 🔍 Analyses & Insights
+## 💡 Insights Clés
 
-### 1. Entonnoir de Conversion
-- 49.5% des sessions visitent une page produit → fort intérêt initial
-- Seulement 9.2% ajoutent au panier → friction UX entre produit et panier
-- 2.40% finalisent l'achat → taux standard e-commerce (2–3%)
-- **74% des paniers sont abandonnés** → levier prioritaire d'optimisation
+- **74% des paniers abandonnés** → relance email automatique J+1 = levier prioritaire
+- **Desktop convertit 57% mieux que Mobile** (3.04% vs 1.93%) malgré Mobile dominant (45% du trafic) → optimisation UX mobile urgente
+- **LG gram Pro = produit le plus rentable** (8 433K€ de marge) → à mettre en avant en homepage
+- **Elite dépense 3x plus par client** que Basic/Silver (2 361€ vs ~750€) → programme de montée en gamme à développer
+- **Gold génère le plus gros volume** de revenus (3.6M€) → segment prioritaire à fidéliser
 
-### 2. Performance par Device 📱
-- Mobile = 45% du trafic mais conversion la plus basse (1.93%)
-- Desktop = 25% du trafic mais meilleure conversion (3.04%) — **57% supérieure**
-- Tablet = position intermédiaire (2.57%)
-- → **Optimiser l'UX mobile est le levier numéro 1**
+---
 
-### 3. Sources de Trafic 🔗
-- Organic = 1ère source en volume (39%) → SEO performant
-- Campaign = meilleur taux de conversion → trafic qualifié
-- Direct = 2ème source en volume (22%)
-- → **Augmenter le budget campagnes pour maximiser les conversions**
+## 🔍 Analyses réalisées
 
-### 4. Segmentation Clients 👥
-- Elite dépense **3x plus par client** que Basic/Silver (2 361€ vs ~750€)
-- Gold génère le plus grand volume de revenus total
-- → **Programme de montée en gamme Basic → Gold à développer**
-
-### 5. Top Produits 🏆
-- Identification des 10 produits avec la meilleure marge brute
-- Analyse croisée marge brute vs taux de marge par produit
-- → **Maximiser la visibilité des produits à forte marge**
-
-### 6. Heatmap Segment × Canal 🔥
-- Croisement segment produit (Entry/Mid/Premium) × canal d'acquisition
-- Identification des combinaisons les plus rentables
-- → **Orienter les budgets marketing vers les segments les plus rentables**
+| Analyse | Insight clé |
+|---------|-------------|
+| 🛒 Entonnoir de conversion | 49.5% visitent une page produit, seulement 2.4% achètent |
+| 📱 Performance par device | Desktop 3.04% vs Mobile 1.93% — écart de 57% |
+| 🔗 Sources de trafic | Campaign = meilleur taux de conversion, Organic = 1er en volume |
+| ⏰ Sessions par heure | Identification des pics pour cibler les campagnes marketing |
+| 📅 Revenus mensuels | Évolution revenus & marge brute sur 2 ans (2022-2024) |
+| 👥 Fidélité clients | Elite génère 3x plus par client que Basic/Silver |
+| 🏆 Top produits | LG gram Pro domine avec 8 433K€ de marge brute |
+| 🔥 Segment × Canal | Croisement segment produit & canal d'acquisition |
 
 ---
 
@@ -78,11 +58,11 @@ Dans le secteur du retail e-commerce, comprendre le comportement des visiteurs e
 
 | # | Recommandation | Impact estimé |
 |---|---------------|---------------|
-| 1 | **Optimiser l'UX mobile** — A/B test checkout mobile | +30% conversion mobile |
-| 2 | **Relance panier abandonné** — email J+1 avec promo 5% | -20% abandon panier |
-| 3 | **Augmenter budget campagnes** — meilleur ROI publicité | +15% conversions qualifiées |
-| 4 | **Programme fidélité Elite** — avantages exclusifs montée en gamme | +25% LTV clients |
-| 5 | **Mettre en avant top produits** — homepage + push notifications | +10% marge brute |
+| 1 | **Optimiser l'UX mobile** — A/B test checkout | +30% conversion mobile |
+| 2 | **Relance panier abandonné** — email J+1 promo 5% | -20% abandon panier |
+| 3 | **Augmenter budget campagnes** — meilleur ROI | +15% conversions |
+| 4 | **Programme fidélité Elite** — avantages exclusifs | +25% LTV clients |
+| 5 | **Mettre en avant LG gram Pro** — homepage + push | +10% marge brute |
 
 ---
 
@@ -92,64 +72,32 @@ Dans le secteur du retail e-commerce, comprendre le comportement des visiteurs e
 
 **Architecture en étoile — 14 tables · 1.8M+ lignes**
 
-| Fichier | Disponible | Description | Volume |
-|---------|-----------|-------------|--------|
-| `fact_clickstream.csv` | ⬇️ Kaggle | Sessions web et comportement visiteurs | 1.7M lignes |
-| `fact_sale.csv` | ⬇️ Kaggle | Transactions de vente ligne par ligne | 1.8M lignes |
-| `fact_transaction.csv` | ⬇️ Kaggle | Transactions agrégées | — |
-| `dim_customer.csv` | ✅ repo | Profil et segmentation clients | 150K lignes |
-| `dim_product.csv` | ✅ repo | Catalogue produits et prix | 470 lignes |
-| `dim_store.csv` | ⬇️ Kaggle | Magasins et points de vente | — |
-| `dim_location.csv` | ⬇️ Kaggle | Géographie | — |
-| `dim_campaign.csv` | ⬇️ Kaggle | Campagnes marketing | — |
-| `dim_date.csv` | ⬇️ Kaggle | Calendrier | — |
-| `inventory.csv` | ⬇️ Kaggle | Niveaux de stock | — |
+| Fichier | Disponible | Description |
+|---------|-----------|-------------|
+| `fact_clickstream.csv` | ⬇️ Kaggle | 1.7M sessions web |
+| `fact_sale.csv` | ⬇️ Kaggle | 1.8M transactions |
+| `dim_customer.csv` | ✅ repo | 150K clients |
+| `dim_product.csv` | ✅ repo | 470 produits |
 
-> ⚠️ Les fichiers `fact_` dépassent 100MB — à télécharger directement sur [Kaggle](https://www.kaggle.com/datasets/ajibsss/elecmart-retail-analytics-dataset) et à placer dans le même dossier que le notebook.
+> ⚠️ Les fichiers `fact_` dépassent 100MB — à télécharger sur [Kaggle](https://www.kaggle.com/datasets/ajibsss/elecmart-retail-analytics-dataset) et placer dans le même dossier que le notebook.
 
 ---
 
 ## 🛠️ Stack technique
 
-- **Python 3** — langage principal
-- **Pandas** — manipulation et agrégation des données
-- **Matplotlib** — visualisations personnalisées
-- **Seaborn** — heatmap et graphiques statistiques
-- **Jupyter Notebook** — présentation interactive de l'analyse
+- **Python 3** · Pandas · Matplotlib · Seaborn
+- **Jupyter Notebook** — analyse interactive
 - **Kaggle** — source de données publique réelle
 - **GitHub** — versioning et présentation portfolio
-
----
-
-## 📁 Structure du repo
-
-```
-ecommerce-retail-analytics/
-├── README.md
-├── requirements.txt
-├── analyse_ecommerce_elecmart.ipynb   ← Notebook Jupyter complet
-├── analyse_ecommerce.py               ← Script Python standalone
-├── dim_customer.csv                   ← 150K clients
-└── dim_product.csv                    ← 470 produits
-```
 
 ---
 
 ## 🚀 Lancer le projet
 
 ```bash
-# 1. Cloner le repo
-git clone https://github.com/TON_USERNAME/ecommerce-retail-analytics
+git clone https://github.com/thierrylaguerre/ecommerce-retail-analytics
 cd ecommerce-retail-analytics
-
-# 2. Installer les dépendances
 pip install -r requirements.txt
-
-# 3. Télécharger les fichiers fact_ sur Kaggle
-# https://www.kaggle.com/datasets/ajibsss/elecmart-retail-analytics-dataset
-# Placer fact_clickstream.csv, fact_sale.csv dans le dossier
-
-# 4. Lancer le notebook
 jupyter notebook analyse_ecommerce_elecmart.ipynb
 ```
 
@@ -157,7 +105,10 @@ jupyter notebook analyse_ecommerce_elecmart.ipynb
 
 ## 👤 Auteur
 
-**Thierry** · Candidat Data Analyst Junior · Paris Île-de-France
+**Thierry Laguerre** · Candidat Data Analyst Junior · Paris Île-de-France
+
 Master Big Data — Paris 8 · Licence Informatique — Sorbonne Paris Nord
 
-> 💼 En reconversion depuis un poste opérationnel en logistique — ce projet démontre ma capacité à analyser des données comportementales e-commerce et à produire des insights actionnables pour des équipes marketing et produit.
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Thierry_Laguerre-blue?logo=linkedin)](https://www.linkedin.com/in/thierry-laguerre-ba1267257/)
+[![GitHub](https://img.shields.io/badge/GitHub-thierrylaguerre-black?logo=github)](https://github.com/thierrylaguerre)
+[![Email](https://img.shields.io/badge/Email-thierrylaguerre81@gmail.com-red?logo=gmail)](mailto:thierrylaguerre81@gmail.com)
